@@ -7,6 +7,10 @@ const app = express();
 
 const PORT = 8000;
 //selects which port you want
+const cors = require("cors");
+//make sure this does not run into cors error. If folx ued this with client thqt runs locally on machine it would not work.Only would run serverside
+
+app.use(cors());
 
 const guest = {
   alice: {
@@ -74,4 +78,4 @@ app.listen(process.env.PORT || PORT, () => {
   console.log(`The server is running on port ${PORT}! Betta go catch it !`);
 });
 
-//want to listen so use app.listen  Tells where to listen. Port wont a;ways be static and it may change which is why we use the process.env line. Allows Heroku to select thier own port first OR if it is on our own port. Makes the code more reuseable
+//want to listen so use app.listen  Tells where to listen. Port wont a;ways be static and it may change which is why we use the process.env line. Allows Heroku to select their own port first OR if it is on our own port. Makes the code more reuseable
